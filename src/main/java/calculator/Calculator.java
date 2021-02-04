@@ -79,7 +79,7 @@ public class Calculator {
 
     private boolean isValidatedOperators() {
         try {
-            throwErrorIfNotContained();
+            throwErrorIfOperandNotContained();
             return true;
         } catch (RuntimeException e) {
             System.out.println(e.getMessage());
@@ -94,7 +94,7 @@ public class Calculator {
         }
     }
 
-    private void throwErrorIfNotContained() throws RuntimeException {
+    private void throwErrorIfOperandNotContained() throws RuntimeException {
         for (String operator : this.operators) {
             if (!Arrays.asList(POSSIBLE_OPERATORS).contains(operator)) {
                 throw new RuntimeException("연산자는 +-*/만 가능합니다.");
